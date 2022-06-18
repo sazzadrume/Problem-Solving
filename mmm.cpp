@@ -8,7 +8,6 @@ void preCompute(int arr[], int n, int pre[])
         pre[i] = arr[i] + pre[i - 1];
 }
 
-
 int rangeSum(int i, int j, int pre[])
 {
     if (i == 0)

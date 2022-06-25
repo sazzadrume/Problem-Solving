@@ -2,12 +2,6 @@
 
 using namespace std;
 
-void addEdge(vector<int> adj[], int u, int v)
-{
-    adj[u].push_back(v);
-    adj[v].push_back(u);
-}
-
 void printGraph(vector<int> adj[], int V)
 {
     for (int v = 0; v < V; ++v) {
@@ -32,7 +26,8 @@ int main(int argc, char const *argv[])
 
 		cin >> left >> right;
 
-		addEdge(adj, left, right);
+		adj[left].push_back(right);
+		adj[right].push_back(left);
 	}
 
 	printGraph(adj, V);

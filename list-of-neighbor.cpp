@@ -29,9 +29,5 @@ int main(int argc, char const *argv[])
 		adj[left].push_back(right);
 		adj[right].push_back(left);
 	}
-
 	printGraph(adj, V);
-
-
-	return 0;
 }

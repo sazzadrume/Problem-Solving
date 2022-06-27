@@ -2,6 +2,24 @@
 
 using namespace std;
 
+bool canFormPalindrome(string str)
+{
+  int count[256] = { 0 };
+
+  for (int i = 0; str[i]; i++)
+    count[str[i]]++;
+
+  int odd = 0;
+  for (int i = 0; i < 256; i++) {
+    if (count[i] & 1)
+      odd++;
+
+    if (odd > 1)
+      return false;
+  }
+  return true;
+}
+
 int main() {
   int T;
   // Get number of test cases
@@ -34,18 +52,29 @@ int main() {
 
       empty = blockCharacters.substr(L, R - L);
 
-      set<char> st;
 
-      for (char c : empty) {
-        st.insert(c);
-      }
-
-      if (empty.size() == 1) {
+      if(canFormPalindrome(empty)){
         ans++;
       }
-      else if (st.size() <= empty.size() / 2) {
-        ans++;
-      }
+      // set<char> st;
+
+      // for (char c : empty) {
+      //   st.insert(c);
+      // }
+
+      // if (empty.size() == 1) {
+      //   ans++;
+      // }
+      // else if (empty.size() % 2 != 0) {
+      //   if (st.size() <= (empty.size() / 2 + 1)) {
+      //     ans++;
+      //   }
+      // }
+      // else {
+      //   if (st.size() <= (empty.size() / 2)) {
+      //     ans++;
+      //   }
+      // }
       // cout << empty << '\n';
 
       // string empty_clone = empty;

@@ -4,13 +4,13 @@ using namespace std;
 
 bool canFormPalindrome(string str)
 {
-  int count[128] = { 0 };
+  int count[256] = { 0 };
 
   for (int i = 0; str[i]; i++)
     count[str[i]]++;
 
   int odd = 0;
-  for (int i = 0; i < 128; i++) {
+  for (int i = 0; i < 256; i++) {
     if (count[i] & 1)
       odd++;
 
@@ -33,6 +33,22 @@ int main() {
     // Get the string representing the characters on the blocks
     cin >> blockCharacters;
 
+    std::map<string, bool> mp;
+
+    for (int i = 0; i < blockCharacters.size(); ++i)
+    {
+      string t = "";
+      for (int j = i; j < blockCharacters.size(); ++j)
+      {
+        t += blockCharacters[j];
+
+        string x = to_string(i);
+        string y = to_string(j);
+
+        mp.insert({x + y, canFormPalindrome(t)});
+      }
+    }
+
     int ans = 0;
 
     for (int i = 0; i < Q; i++) {
@@ -40,20 +56,28 @@ int main() {
       cin >> L >> R;
 
       L--;
+      R--;
+
+      string x = to_string(L);
+      string y = to_string(R);
+
+      auto it = mp.find(x + y);
+
+
       // R--;
 
-      string empty = "";
+      // string empty = "";
 
-      // for (int j = L; i < R; j++)
-      // {
-      //   cout << blockCharacters[j];
-      //   empty += blockCharacters[j];
-      // }
+      // // for (int j = L; i < R; j++)
+      // // {
+      // //   cout << blockCharacters[j];
+      // //   empty += blockCharacters[j];
+      // // }
 
-      empty = blockCharacters.substr(L, R - L);
+      // empty = blockCharacters.substr(L, R - L);
 
 
-      if(canFormPalindrome(empty)){
+      if (it->second == true) {
         ans++;
       }
       // set<char> st;

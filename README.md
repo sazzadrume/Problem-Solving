@@ -1,3 +1,2 @@
-# Code
+Problem solving code.
 
-Place for my everyday code.

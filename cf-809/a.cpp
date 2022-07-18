@@ -8,8 +8,15 @@ int main(int argc, char const *argv[])
 	cin >> tt;
 
 	while (tt--) {
-		int n;
-		cin >> n;
+		int n, m;
+		cin >> n >> m;
+
+		string s = "";
+
+		for (int i = 0; i < m; ++i)
+		{
+			s += 'B';
+		}
 
 		int a[n];
 
@@ -18,19 +25,34 @@ int main(int argc, char const *argv[])
 			cin >> a[i];
 		}
 
-		int ans = 0;
-
-		for (int i = 1; i < n - 1; ++i)
+		for (int i = 0; i < n; ++i)
 		{
-			if(a[i] < a[i - 1] && a[i] < a[i + 1]){
-				int val = max(a[i - 1], a[i + 1]);
-				val = val - a[i] + 1;
-				ans += val;
-				a[i] = val + 1;
+			int l = a[i];
+
+			int r = m + 1 - a[i];
+
+			l--;
+			r--;
+
+			string x = s;
+			string y = s;
+
+			x[l] = 'A';
+			y[r] = 'A';
+
+			if (x < y) {
+				s = x;
+			}
+			else {
+				s = y;
 			}
 		}
 
-		cout << ans << '\n';
+		// s[0] = 'A';
+
+		cout << s << '\n';
+
+
 	}
 	return 0;
 }

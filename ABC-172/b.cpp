@@ -4,9 +4,6 @@ using namespace std;
 
 int main() {
 
-    //freopen ("in.txt","r",stdin);
-    //freopen ("out.txt","w",stdout);
-
 	string s, t;
 	cin >> s >> t;
 	

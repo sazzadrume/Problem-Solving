@@ -25,19 +25,9 @@ int main(int argc, char const *argv[])
 
 			reverse(pref.begin(), pref.end());
 
-			// cout << "Prefix : " << pref << '\n';
-
 			S = pref + S;
 
 			S = S.substr(0, N);
-
-			// cout << "S : " << S << '\n';
-
-			// for (int i = 0; i < R; ++i)
-			// {
-			// 	S = S[N - 1] + S;
-			// 	S.pop_back();
-			// }
 		}
 		else {
 			cout << S[R - 1] << '\n';

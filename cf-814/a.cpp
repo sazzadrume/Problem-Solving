@@ -13,20 +13,11 @@ int main(int argc, char const *argv[])
 
 		// cout << n << ' ';
 
-		if(k == 0){
-			printf("NO\n");
+		if (n % 2 == k % 2) {
+			printf("Tonya\n");
 		}
-		else{
-			printf("YES\n");
-
-			for (int i = 1; i <= n; ++i)
-			{
-				cout << i << ' ' ;
-
-				if(i % 2 == 0){
-					cout << '\n';
-				}
-			}
+		else {
+			printf("Burenka\n");
 		}
 	}
 	return 0;

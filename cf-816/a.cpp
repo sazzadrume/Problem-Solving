@@ -8,13 +8,16 @@ int main(int argc, char const *argv[])
 	cin >> tt;
 
 	while(tt--){
-		int n;
-		cin >> n;
+		int n, k;
+		cin >> n >> k;
 
-		for (int i = 1; i <= 1000; i += 4)
-		{
-			printf("%d\n", i);
-		}
+		int mn = min(n, k);
+
+		int mx = max(n, k);
+
+		int ans = (mx + mn) + mn - 2;
+
+		cout << ans << '\n';
 	}
 	return 0;
 }

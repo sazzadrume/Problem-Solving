@@ -13,39 +13,28 @@ int main(int argc, char const *argv[])
 
 		int a[n];
 
+		vector<int> odd;
+		vector<int> even;
+
 		for (int i = 0; i < n; ++i)
 		{
 			cin >> a[i];
-		}
 
-		int ans = 0;
-
-		sort(a, a + n);
-
-		if (a[n - 1] % 2 == 0) {
-			ans = a[n - 1];
-
-			for (int i = n - 2; i >= 0; i--) {
-				if (a[i] % 2 == 0) {
-					ans += a[i];
-					break;
-				}
+			if (a[i] % 2 == 0) {
+				even.push_back(a[i]);
 			}
-		}
-		else {
-			ans = a[n - 1];
-
-			for (int i = n - 2; i >= 0; i--) {
-				if (a[i] % 2 != 0) {
-					ans += a[i];
-					break;
-				}
+			else {
+				odd.push_back(a[i]);
 			}
 		}
 
-		if(n == 2 && ans % 2 != 0){
-			ans = -1;
-		}
+		sort(even.rbegin(), even.rend());
+		sort(odd.rbegin(), odd.rend());
+
+		int ans = -1;
+
+		if (even.size() > 1) ans = max(ans, even[0] + even[1]);
+		if (odd.size() > 1) ans = max(ans, odd[0] + odd[1]);
 
 		cout << ans << '\n';
 	}
